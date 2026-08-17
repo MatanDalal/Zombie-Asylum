@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour
 
     private int score = 0;
 
+    public int CurrentScore => score;
+
     private void Start()
     {
         UpdateScoreText();
@@ -15,9 +17,12 @@ public class ScoreManager : MonoBehaviour
     public void AddPoint()
     {
         score++;
+        UpdateScoreText();
+    }
 
-        Debug.Log("Score: " + score);
-
+    public void ResetScore()
+    {
+        score = 0;
         UpdateScoreText();
     }
 

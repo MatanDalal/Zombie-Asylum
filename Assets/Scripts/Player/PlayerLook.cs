@@ -7,16 +7,16 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 0.1f;
 
     private float verticalRotation = 0f;
+    private bool canLook = false;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        SetLookEnabled(false);
     }
 
     private void Update()
     {
-        if (Mouse.current == null)
+        if (!canLook || Mouse.current == null)
         {
             return;
         }
@@ -33,5 +33,21 @@ public class PlayerLook : MonoBehaviour
             Quaternion.Euler(verticalRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    public void SetLookEnabled(bool enabled)
+    {
+        canLook = enabled;
+
+        if (enabled)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
