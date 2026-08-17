@@ -3,6 +3,9 @@ using UnityEngine;
 public class TargetSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject targetPrefab;
+    [SerializeField] private ScoreManager scoreManager;
+
+
 
     [SerializeField] private float minX = -8f;
     [SerializeField] private float maxX = 8f;
@@ -39,6 +42,7 @@ public class TargetSpawner : MonoBehaviour
 
     private void HandleTargetDestroyed()
     {
+        scoreManager.AddPoint();
         SpawnTarget();
     }
 }
