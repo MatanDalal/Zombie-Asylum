@@ -31,3 +31,16 @@ Thumbs.db
 *.vsconfig
 *.slnx
 UpgradeLog.htm
+# Third-party Unity / Asset Store assets
+Assets/Abandoned_Asylum/
+Assets/Abandoned_Asylum.meta
+
+Assets/ZombieMale_AAB/
+Assets/ZombieMale_AAB.meta
+
+Assets/LowPolyWeapons_LITE/
+Assets/LowPolyWeapons_LITE.meta
+
+# Third-party / imported animation assets
+Assets/Animations/
+Assets/Animations.meta

@@ -9,11 +9,6 @@ public class PlayerLook : MonoBehaviour
     private float verticalRotation = 0f;
     private bool canLook = false;
 
-    private void Start()
-    {
-        SetLookEnabled(false);
-    }
-
     private void Update()
     {
         if (!canLook || Mouse.current == null)
@@ -27,7 +22,11 @@ public class PlayerLook : MonoBehaviour
         float mouseY = mouseDelta.y * mouseSensitivity;
 
         verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
+        verticalRotation = Mathf.Clamp(
+            verticalRotation,
+            -90f,
+            90f
+        );
 
         transform.localRotation =
             Quaternion.Euler(verticalRotation, 0f, 0f);
